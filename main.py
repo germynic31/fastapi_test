@@ -11,30 +11,24 @@ app.include_router(items_router)
 app.include_router(users_router)
 
 
-@app.get('/')
+@app.get("/")
 def hello_index():
     """Return hello index."""
-    return {
-        'message': 'hello index'
-    }
+    return {"message": "hello index"}
 
 
-@app.get('/hello/')
-def hello(name: str = 'World'):
+@app.get("/hello/")
+def hello(name: str = "World"):
     """Return string 'hello {name}'."""
     name = name.title()
-    return {'message': f'hello {name}'}
+    return {"message": f"hello {name}"}
 
 
-@app.post('/calc/add/')
+@app.post("/calc/add/")
 def add(a: int, b: int):
     """Calculator add."""
-    return {
-        'a': a,
-        'b': b,
-        'result': a + b
-    }
+    return {"a": a, "b": b, "result": a + b}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)

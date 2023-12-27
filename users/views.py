@@ -5,10 +5,10 @@ from users.schemas import CreateUser
 from users import crud
 
 
-router = APIRouter(prefix='/users', tags=['Users'])
+router = APIRouter(prefix="/users", tags=["Users"])
 
 
-@router.post('/')
+@router.post("/")
 def create_user(user: CreateUser):
     """Return dict with message and email"""
     return crud.create_user(user)
